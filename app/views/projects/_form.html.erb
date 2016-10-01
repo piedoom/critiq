@@ -1,0 +1,13 @@
+<%= form_for(project) do |f| %>
+
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+    <%= f.fields_for :items do |item| %>
+      <%= render 'items_fields', f: item %>
+    <% end %>
+
+    <%= link_to_add_association "Add Item", f, :items %>
+
+  <%= f.submit %>
+<% end %>
