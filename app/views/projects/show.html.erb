@@ -3,6 +3,10 @@
 <p>
   <strong>Name:</strong>
   <%= @project.name %>
+  <% @project.items.each do |item| %>
+    <%= image_tag item.image.url(:original) %>
+    <canvas class="annotateCanvas" data-id="<%= item.id %>" />
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_project_path(@project) %> |
